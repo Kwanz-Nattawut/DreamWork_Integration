@@ -54,6 +54,7 @@ app.get('/test', (req, res) => {
 
     let data = [];
     let buff = [];
+    let data_arr = [];
     return new Promise(function (resolve, reject) {
         csv
             .fromPath("./sanam.csv")
@@ -61,7 +62,12 @@ app.get('/test', (req, res) => {
                 data.push(str);
             })
             .on("end", function () {
-                resolve(data);
+                for(let i = 1 ; i < Object.keys(data).length ; i++){
+                    buff[i - 1] = Object.values(data[i].toString());
+                    data_arr[i - 1] = buff[i - 1].split(';');
+                }
+                console.log(data_arr);
+                resolve(data_arr);
             });
         //console.log(data[0])
     });
