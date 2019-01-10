@@ -60,14 +60,14 @@ app.get('/getSanam/:hour', (req, res) => {
         }},'P_IN Timestamp').sort({Timestamp : 'asc'}).exec((err,rsp) => {
             let show = [];
             //console.log(rsp[6].P_IN);
-            console.log(rsp.length)
+            console.log(rsp[0])
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
             
-            if(typeof rsp[0].Timestamp === 'undefined'){
+            /*if(typeof rsp[0].Timestamp === 'undefined'){
                  res.json("ERROR");
-            }
+            }*/
             if(show.length == 0){
                  res.json("ไม่พบข้อมูลการเข้าชม เวลานี้");
             }
