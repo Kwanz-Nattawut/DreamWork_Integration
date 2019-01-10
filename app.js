@@ -65,7 +65,7 @@ app.get('/getSanam/:hour', (req, res) => {
                 show.push(rsp[i].P_IN);
             }
             
-            if(rsp[0].Timestamp < Date_Diff ){
+            if(!rsp[0].Timestamp){
                  res.json("ERROR");
             }
             if(show.length == 0){
