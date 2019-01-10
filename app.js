@@ -22,12 +22,7 @@ app.post('/beacon', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
     var all = req.body;
-    /*var NewSensor = new Sensors(all);
-    var NewBeacon = new Beacons();
-    NewBeacon.P_IN = req.body.P_IN;
-    NewBeacon.P_OUT = req.body.P_OUT;
-    NewBeacon.Timestamp = req.body.Timestamp;
-
+    var NewSensor = new Sensors(all);
     NewSensor.save((err,rsp) => {
         if(err){
             console.log("error");
@@ -38,6 +33,12 @@ app.post('/HW_Send', (req, res) => {
              //console.log(rsp[0]);
         }
     });
+    /*var NewBeacon = new Beacons();
+    NewBeacon.P_IN = req.body.P_IN;
+    NewBeacon.P_OUT = req.body.P_OUT;
+    NewBeacon.Timestamp = req.body.Timestamp;
+
+    
     NewBeacon.save((err,rsp) => {
         if(err){
             console.log("error");
