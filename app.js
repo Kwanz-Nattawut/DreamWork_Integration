@@ -102,7 +102,7 @@ csv
      data_new = data[0];
      var data_0 = Object.values(data);
      let data_1= data_0[0].split(';');
-     console.log(data);
+     console.log(Object.values(data) );
       //res.end(JSON.stringify(data));
       //res.json(JSON.stringify(data));
  })
