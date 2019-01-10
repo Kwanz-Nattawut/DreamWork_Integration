@@ -48,7 +48,7 @@ app.post('/HW_Send', (req, res) => {
              //console.log(rsp[0]);
         }
     });
-    console.log(all);
+    //console.log(all);
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
