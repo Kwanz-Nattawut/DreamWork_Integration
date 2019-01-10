@@ -22,19 +22,7 @@ app.post('/beacon', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
     var all = req.body;
-    var NewSensor = new Sensors(all);
-    NewSensor.save((err,rsp) => {
-        if(err){
-            console.log("error");
-        }
-        else
-        {
-             res.json(rsp);
-        }
-    });
     
-    console.log(all);
-     res.json(all);
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
