@@ -42,7 +42,7 @@ app.get('/test2', (req, res) => {
     let Date_time = new Date();
     let Date_Diff = new Date();
     Date_Diff.setHours - 1;
-    Date_Diff = new Date(Date_Diff).toLocaleString();
+    Date_Diff = dateFormat(Date_Diff,"dd MM yyyy H:MM:ss");
     Date_time = new Date(Date_time).toLocaleString();
     console.log(Date_Diff,Date_time);
     Sensors.find({Timestamp : {
