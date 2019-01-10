@@ -66,10 +66,11 @@ app.get('/test', (req, res) => {
                     buff[i - 1] = Object.values(data[i]).toString();
                     data_arr[i - 1] = buff[i - 1].split(';');
                 }
-                console.log(parseInt(data_arr[0][6]));
+                //console.log(data_arr);
                 resolve(data_arr);
             });
         //console.log(data[0])
+        console.log(data_arr);
     });
 
 });
