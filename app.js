@@ -15,6 +15,10 @@ app.get('/', (req, res) => {
     res.send("<h1>TESA TOP GUN REALLY 2019 DREAMWORK</h1>");
 });
 
+app.post('/beacon', (req, res) => {
+    
+});
+
 app.post('/HW_Send', (req, res) => {
     var all = req.body;
     console.log(all);
