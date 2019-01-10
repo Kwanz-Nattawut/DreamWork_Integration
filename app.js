@@ -8,7 +8,6 @@ var app = express();
 var csv = require("fast-csv");
 const dateFormat = require('dateformat');
 // import * as dateFormat from "dateformat";
-const add = require('./addData');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
