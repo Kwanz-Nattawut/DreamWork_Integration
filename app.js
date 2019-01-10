@@ -99,9 +99,9 @@ csv
  .fromPath("sanam.csv")
  .on("data", function(data){
      let data_new = [];
-     data_new = data[0,5][0]
-     //let data_0= data_new[6].split(' ');
-     console.log(data_new);
+     data_new = data[0];
+     let data_0= data_new.split(';');
+     console.log(data_0);
       //res.end(JSON.stringify(data));
       //res.json(JSON.stringify(data));
  })
