@@ -1,7 +1,7 @@
 var mongoose = require('../db/mongoose');
-var dateFormat = require('dateformat');
+
 var Schema = mongoose.Schema;
-var date = dateFormat(new Date(), "dd mmm yyyy HH:MM:ss");
+
 var SensorData = new Schema({
     Temperature : Number,
     Humidity : Number,
