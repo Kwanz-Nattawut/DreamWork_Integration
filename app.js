@@ -28,7 +28,7 @@ app.post('/HW_Send', (req, res) => {
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
-    
+
 });
 
 
