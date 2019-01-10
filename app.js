@@ -45,7 +45,7 @@ app.get('/Temp_Hum/16', (req, res) => {
         //var test = new Date(t);
         //test = dateFormat(test, "dd mmmm yyyy H:MM:ss")
         var s = dateFormat(new Date(),"dd mmmm yyyy H:MM:ss" );
-         res.json(s);
+         console.log(s);
 
     });
 });
