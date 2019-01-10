@@ -94,9 +94,9 @@ app.get('/test', (req, res) => {
             })
             .on("end", function () {
                 resolve(data);
-                console.log(data);
+                console.log(data[0]);
             });
-        console.log(data[0])
+        //console.log(data[0])
     });
     
 });
