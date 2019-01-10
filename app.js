@@ -57,24 +57,22 @@ app.get('/getSanam/:hour', (req, res) => {
         Beacons.find({Timestamp : {
             $lte : Date_time,
             $gt :  Date_Diff
-        }}).select('P_IN').exec((err,rsp) => {
+        }}).select('P_IN','Timestamp').exec((err,rsp) => {
             let show = [];
             //console.log(rsp[6].P_IN);
+            console.log(rsp.length);
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
-            if(show.length < parseInt(req.params.hour))
-            {
-                res.json("Error");
-            }
-            else if(show.length == 0){
+
+            if(show.length == 0){
                  res.json("ไม่พบข้อมูลการเข้าชม เวลานี้");
             }
             else
             {
                 res.json(show);
             }
-             
+
              console.log(show.length,parseInt(req.params.hour));
         });
     });
