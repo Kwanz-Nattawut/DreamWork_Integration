@@ -59,6 +59,7 @@ app.get('/getSanam/:hour', (req, res) => {
             $gt :  Date_Diff
         }}).select('P_IN').exec((err,rsp) => {
             let show = [];
+            console.log(rsp[0].P_IN);
             for(let i = 0 ; i < Object.keys(show).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
