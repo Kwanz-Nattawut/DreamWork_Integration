@@ -8,7 +8,7 @@ var app = express();
 var csv = require("fast-csv");
 const dateFormat = require('dateformat');
 // import * as dateFormat from "dateformat";
-
+const add = require('./addData');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -21,30 +21,9 @@ app.post('/beacon', (req, res) => {
 });
 
 app.post('/HW_Send', (req, res) => {
-   var NewSensor = new Sensors(req.body);
-   NewSensor.save((err) => {
-       if(err)
-       {
-           throw err;
-       }
-       else
-       {
-        console.log(NewSensor);
-        res.json(NewSensor);
-       }
-    });
-    var NewBeacon = new Beacons(req.body);
-    NewBeacon.save((err) => {
-        if(err){
-            throw err;
-        }
-        else
-        {
-            console.log(NewBeacon);
-             res.json(NewBeacon);
-        }
-    })
+   add(req.body);
 });
+
 
 app.get('/Temp_Hum/16', (req, res) => {
     let Date_time = new Date();
