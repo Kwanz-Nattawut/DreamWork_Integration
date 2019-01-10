@@ -101,7 +101,7 @@ csv
      let data_new = [];
      data_new = data[0];
      var data_0 = Object.keys(data_new).map(function(key) {
-        return [Number(key), obj[key]];
+        return [Number(key), data_new[key]];
       });
     //  let data_0= data_new.split(';');
      console.log(data_0);
