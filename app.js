@@ -23,6 +23,7 @@ app.post('/HW_Send', (req, res) => {
         else
         {
              res.json(rsp);
+             console.log(rsp[0]);
         }
     })
     console.log(New);
@@ -35,22 +36,7 @@ app.get('/Temp_Hum/16', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-    http.get({
-        host: 'http://202.139.192.114:3000',
-        path: '/Temp_Hum/16'
-    }, function(response) {
-        // Continuously update stream with data
-        var body = '';
-        response.on('data', function(d) {
-            body += d;
-        });
-        response.on('end', function() {
-// Data received, let us parse it using JSON!
-            var parsed = JSON.parse(body);
-            console.log(parsed);
-             res.json(parsed);
-        });
-    });
+    
 });
 
 
