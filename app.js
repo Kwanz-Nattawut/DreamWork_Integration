@@ -77,7 +77,7 @@ app.get('/getSanam/:hour', (req, res) => {
                 {
                      Beacons.find({},'P_IN').exec((err,beacon) => {
                          let show = [];
-                        for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
+                        for(let i = 0 ; i < Object.keys(beacon).length ; i ++){
                             show.push(beacon[i].P_IN);
                         }
                           res.json(show);
