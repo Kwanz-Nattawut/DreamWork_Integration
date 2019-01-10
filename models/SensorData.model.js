@@ -9,7 +9,7 @@ var SensorData = new Schema({
     P_OUT : Number,
     Timestamp : {
         type : Date,
-        default : date
+        default : Date.now()
     }
 });
 
