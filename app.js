@@ -65,7 +65,7 @@ app.get('/getSanam/:hour', (req, res) => {
                 show.push(rsp[i].P_IN);
             }
             
-            if(!rsp[0].Timestamp){
+            if(typeof rsp[0].Timestamp === 'undefined'){
                  res.json("ERROR");
             }
             if(show.length == 0){
