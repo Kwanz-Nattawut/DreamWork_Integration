@@ -17,7 +17,8 @@ app.get('/', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
     var all = req.body;
-    var New = new Sensors(all);
+    console.log(all);
+    /*var New = new Sensors(all);
 
     New.save((err,rsp) => {
         if(err){
@@ -29,7 +30,7 @@ app.post('/HW_Send', (req, res) => {
              //console.log(rsp[0]);
         }
     })
-    console.log(New);
+    console.log(New);*/
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
