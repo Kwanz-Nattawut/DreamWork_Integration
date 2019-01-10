@@ -75,7 +75,7 @@ app.get('/getSanam/:hour', (req, res) => {
                 res.json(show);
             }
              
-             console.log(show.length,req.params.hour);
+             console.log(show.length,parseInt(req.params.hour));
         });
     });
 
