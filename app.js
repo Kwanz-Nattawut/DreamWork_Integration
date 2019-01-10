@@ -1,6 +1,6 @@
 var express = require('express');
 var request = require('request');
-const https = require('https');
+const http = require('http');
 var bodyParser = require('body-parser');
 var Sensors = require('./models/SensorData.model');
 var app = express();
