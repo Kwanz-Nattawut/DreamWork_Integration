@@ -27,7 +27,8 @@ app.post('/HW_Send', (req, res) => {
    NewB.P_OUT = parseInt(req.body.P_OUT);
 
    var NewBeacon = new Beacons(NewB);
-   console.log(NewBeacon);
+   console.log("NewBeacon : ",NewBeacon, typeof(NewBeacon));
+   console.log("req.body: ", req.body, typeof(req.body));
    NewSensor.save((err) => {
        if(err)
        {
