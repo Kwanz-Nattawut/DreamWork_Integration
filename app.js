@@ -63,8 +63,14 @@ app.get('/Beacon/16', (req, res) => {
                 count_beacon ++ ;
             }
             res.json(count_beacon);
-        })
+        });
     });
+
+app.get('/beacon/train/16', (req, res) => {
+    Beacons.find({}).exec((err,rsp) => {
+        res.json(rsp);
+    });
+});
 
 app.get('/Temp_Hum/16', (req, res) => {
 
@@ -75,7 +81,7 @@ app.get('/Temp_Hum/16', (req, res) => {
 });
 
 
-app.get('/test', (req, res) => {
+/*app.get('/test', (req, res) => {
 
     let data = [];
     let buff = [];
@@ -104,7 +110,7 @@ app.get('/test', (req, res) => {
             });
     });
 
-});
+});*/
 
 app.listen(3000, () => {
     console.log(`Server started on port 3000 \n http://localhost:3000/`);
