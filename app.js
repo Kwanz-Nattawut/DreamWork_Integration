@@ -84,6 +84,21 @@ app.get('/Temp_Hum/16', (req, res) => {
 //     });
 // });
 app.get('/test', (req, res) => {
+
+    let data = [];
+    return new Promise(function (resolve, reject) {
+        csv
+            .fromPath("./data/THB.csv")
+            .on("data", function (str) {
+                data.push(str);
+            })
+            .on("end", function () {
+                resolve(data);
+                console.log(data);
+            });
+    });
+
+
     /*request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, response, body) => {
     if (err) {
 
@@ -95,21 +110,21 @@ app.get('/test', (req, res) => {
 
 });*/
 
-csv
- .fromPath("sanam.csv")
- .on("data", function(data){
-     let data_new = [];
-     data_new = data[0];
-     var data_0 = Object.values(data);
-     let data_1= data_0[0].split(';');
-     console.log(Object.values(data) );
-      //res.end(JSON.stringify(data));
-      //res.json(JSON.stringify(data));
- })
- .on("end", function(){
-     //console.log("done");
- });
-});
+// csv
+//  .fromPath("sanam.csv")
+//  .on("data", function(data){
+//      let data_new = [];
+//      data_new = data[0];
+//      var data_0 = Object.values(data);
+//      let data_1= data_0[0].split(';');
+//      console.log(Object.values(data) );
+//       //res.end(JSON.stringify(data));
+//       //res.json(JSON.stringify(data));
+//  })
+//  .on("end", function(){
+//      //console.log("done");
+//  });
+// });
 
 
 app.listen(3000, () => {
