@@ -36,9 +36,9 @@ app.get('/Temp_Hum/16', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-    http.get('http://202.139.192.114:3000/Temp_Hum/16',(res) => {
+    http.get('http://202.139.192.114:3000/Temp_Hum/16',(rs) => {
         var body = '';
-        response.on('data', function(d) {
+        rs.on('data', function(d) {
             body += d;
         });
         console.log(body);
