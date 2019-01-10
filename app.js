@@ -58,11 +58,7 @@ app.get('/getSanam/:hour', (req, res) => {
             $lte : Date_time,
             $gt :  Date_Diff
         }}).exec((err,rsp) => {
-            let count_beacon = 0;
-            for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
-                count_beacon ++ ;
-            }
-            res.json(count_beacon);
+            res.json(rsp);
         });
     });
 
