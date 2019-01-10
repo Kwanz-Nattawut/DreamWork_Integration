@@ -22,7 +22,7 @@ app.post('/beacon', (req, res) => {
 app.post('/HW_Send', (req, res) => {
     var all = req.body;
     console.log(all);
-    /*var New = new Sensors(all);
+    var New = new Sensors(all);
 
     New.save((err,rsp) => {
         if(err){
@@ -34,7 +34,7 @@ app.post('/HW_Send', (req, res) => {
              //console.log(rsp[0]);
         }
     })
-    console.log(New);*/
+    console.log(New);
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
@@ -49,22 +49,22 @@ app.get('/Temp_Hum/16', (req, res) => {
     });
 });
 
-app.get('/Temp_Hum/16/test', (req, res) => {
-    let Date_time = new Date();
-    let Date_Diff = new Date();
-    Date_Diff.setHours( Date_Diff.getHours() - 1);
-    Date_time = new Date(Date_time).toLocaleString();
-    Date_Diff = new Date(Date_Diff).toLocaleString();
-    //console.log(Date_Diff,Date_time);
-    Sensors.find({Timestamp : {
-        $lte : Date_time,
-        $gt :  Date_Diff
-    }}).exec((err,rsp) => {
-         res.json(rsp);
-         console.log(Date_time);
-         console.log(Date_Diff);
-    });
-});
+// app.get('/Temp_Hum/16/test', (req, res) => {
+//     let Date_time = new Date();
+//     let Date_Diff = new Date();
+//     Date_Diff.setHours( Date_Diff.getHours() - 1);
+//     Date_time = new Date(Date_time).toLocaleString();
+//     Date_Diff = new Date(Date_Diff).toLocaleString();
+//     //console.log(Date_Diff,Date_time);
+//     Sensors.find({Timestamp : {
+//         $lte : Date_time,
+//         $gt :  Date_Diff
+//     }}).exec((err,rsp) => {
+//          res.json(rsp);
+//          console.log(Date_time);
+//          console.log(Date_Diff);
+//     });
+// });
 app.get('/test', (req, res) => {
     request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, response, body) => {
     if (err) {
