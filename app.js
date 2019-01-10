@@ -30,7 +30,18 @@ app.post('/HW_Send', (req, res) => {
             console.log(NewSensor);
              res.json(NewSensor);
         }
-    })
+    });
+
+    Beacons.create({P_IN : req.body.P_IN , P_OUT : req.body.P_OUT},(err,beacon) => {
+        if(err){
+            console.log(err)
+        }
+        else
+        {
+             res.json(beacon);
+            console.log(beacon);
+        }
+    });
 });
 
 
