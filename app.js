@@ -43,7 +43,7 @@ app.get('/Temp_Hum/16', (req, res) => {
         //  var test = dateFormat(rsp[0].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
         var t = rsp[0].Timestamp;
         //var test = new Date(t);
-        var test = dateFormat(new Date(t).toLocaleString(), "dd mmmm yyyy H:MM:ss")
+        var test = dateFormat(new Date(t).toLocaleString(), "dd mm yyyy H:MM:ss")
         //var s = new Date().toLocaleString();
          console.log(test);
           res.json(test);
