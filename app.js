@@ -38,7 +38,7 @@ app.get('/Temp_Hum/16', (req, res) => {
     Date_Diff.setHours( Date_Diff.getHours() - 1);
     Date_time = new Date(Date_time).toLocaleString();
     Date_Diff = new Date(Date_Diff).toLocaleString();
-    console.log(Date_Diff,Date_time);
+    //console.log(Date_Diff,Date_time);
     Sensors.find({Timestamp : {
         $lte : Date_time,
         $gt :  Date_Diff
