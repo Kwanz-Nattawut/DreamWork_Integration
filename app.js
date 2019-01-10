@@ -100,7 +100,7 @@ csv
  .on("data", function(data){
      console.log(data);
       res.end(JSON.stringify(data));
-      //res.json(JSON.parse(data));
+      res.json(JSON.stringify(data));
  })
  .on("end", function(){
      //console.log("done");
