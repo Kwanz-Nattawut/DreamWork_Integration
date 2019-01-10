@@ -16,20 +16,20 @@ app.get('/', (req, res) => {
 });
 
 app.post('/beacon', (req, res) => {
-    // var NewBeacon = new Beacons(req.body);
-    // NewBeacon.save((err,beacon) => {
-    //     if(err){
-    //         throw err;
-    //     }
-    //     else
-    //     {
-    //         console.log(beacon);
-    //         res.json(beacon);
-    //     }
-    // });
-    console.log(req.body);
+    var NewBeacon = new Beacons(req.body);
+    NewBeacon.save((err,beacon) => {
+        if(err){
+            throw err;
+        }
+        else
+        {
+            console.log(beacon);
+            res.json(beacon);
+        }
+    });
+    /*console.log(req.body);
     console.log(req.body.P_IN);
-    console.log(req.body.P_OUT);
+    console.log(req.body.P_OUT);*/
 });
 
 app.post('/HW_Send', (req, res) => {
