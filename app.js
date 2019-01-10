@@ -22,7 +22,7 @@ app.post('/beacon', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
     var all = req.body;
-    
+     res.json(all);
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
