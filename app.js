@@ -35,15 +35,11 @@ app.get('/Temp_Hum/16', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-    http.get('http://202.139.192.114:3000/Temp_Hum/16', (resp) => {
-  let data = '';
-
-  // A chunk of data has been recieved.
-  resp.on('data', (chunk) => {
-    data += chunk;
-  });
-  console.log(data);
-   res.json(data);
+    request({url: 'http://202.139.192.114:3000/Temp_Hum/16', json: true}, function(err, res, json) {
+  if (err) {
+    throw err;
+  }
+  console.log(json);
 });
 });
 
