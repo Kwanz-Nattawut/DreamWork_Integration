@@ -31,28 +31,49 @@ app.post('/HW_Send', (req, res) => {
     //          res.json(NewSensor);
     //     }
     // });
-
-    Sensors.create(req.body,(err,sensor) => {
-        if(err){
-            console.log(err)
-        }
-        else
-        {
-             res.json(sensor);
-            console.log(sensor);
-        }
+    var Sensors = new Promise((resolve, reject) => {
+        Sensors.create(req.body,(err,sensor) => {
+                if(err){
+                    console.log(err)
+                }
+                else
+                {
+                   res.json(sensor);
+                    console.log(sensor);
+                }
+             });
+             resolve(sensor);
     });
 
-    Beacons.create({P_IN : req.body.P_IN , P_OUT : req.body.P_OUT},(err,beacon) => {
-        if(err){
-            console.log(err)
-        }
-        else
-        {
-             res.json(beacon);
-            console.log(beacon);
-        }
+    var Beacons = new Promise((resolve, reject) => {
+        Sensors.create(req.body,(err,beacon) => {
+            if(err){
+                console.log(err)
+            }
+            else
+            {
+                 res.json(beacon);
+                console.log(beacon);
+            }
+        });
+        resolve(beacon);
     });
+    /*Promise.all([Sensors, Beacons]).then(function(values) {
+        console.log(values);
+      });*/
+    
+    
+
+    // Beacons.create({P_IN : req.body.P_IN , P_OUT : req.body.P_OUT},(err,beacon) => {
+    //     if(err){
+    //         console.log(err)
+    //     }
+    //     else
+    //     {
+    //          res.json(beacon);
+    //         console.log(beacon);
+    //     }
+    // });
 });
 
 
