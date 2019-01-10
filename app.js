@@ -63,7 +63,15 @@ app.get('/getSanam/:hour', (req, res) => {
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
-             res.json(show);
+            if(req.params.hour > show.length)
+            {
+                res.json("Error");
+            }
+            else
+            {
+                res.json(show);
+            }
+             
              console.log(show.length);
         });
     });
