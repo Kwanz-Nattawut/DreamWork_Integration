@@ -22,13 +22,6 @@ app.post('/beacon', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
    var NewSensor = new Sensors(req.body);
-   var NewB = {};
-   NewB.P_IN = parseInt(req.body.P_IN);
-   NewB.P_OUT = parseInt(req.body.P_OUT);
-
-   
-   /*console.log("NewBeacon : ",NewBeacon, typeof(NewBeacon));
-   console.log("req.body: ", req.body, typeof(req.body));*/
    NewSensor.save((err) => {
        if(err)
        {
@@ -38,34 +31,8 @@ app.post('/HW_Send', (req, res) => {
        {
         console.log(NewSensor);
         res.json(NewSensor);
-        NewBeacon(NewB);
        }
-   });
-NewBeacon = (newB) => {
-    var NewBeacon = new Beacons(newB);
-
-    NewBeacon.save((err) => {
-        if(err)
-        {
-            throw err;
-        }
-        else
-        {
-         console.log(NewBeacon);
-         res.json(NewBeacon);
-        }
     });
-}
-   NewBeacon.save((err) => {
-       if(err){
-           throw err;
-       }
-       else
-       {
-           console.log(NewBeacon);
-            res.json(NewBeacon);
-       }
-   });
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
