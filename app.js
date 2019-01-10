@@ -57,10 +57,10 @@ app.get('/getSanam/:hour', (req, res) => {
         Beacons.find({Timestamp : {
             $lte : Date_time,
             $gt :  Date_Diff
-        }},'P_IN Timestamp').exec((err,rsp) => {
+        }},'P_IN Timestamp').sort({Timestamp : 'asc'}).exec((err,rsp) => {
             let show = [];
             //console.log(rsp[6].P_IN);
-            console.log(rsp.length, rsp);
+            console.log(rsp.length, rsp[0].Timestamp);
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
