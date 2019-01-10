@@ -16,7 +16,20 @@ app.get('/', (req, res) => {
 });
 
 app.post('/beacon', (req, res) => {
-    
+    // var NewBeacon = new Beacons(req.body);
+    // NewBeacon.save((err,beacon) => {
+    //     if(err){
+    //         throw err;
+    //     }
+    //     else
+    //     {
+    //         console.log(beacon);
+    //         res.json(beacon);
+    //     }
+    // });
+    console.log(req.body);
+
+    request.post('',{},())
 });
 
 app.post('/HW_Send', (req, res) => {
