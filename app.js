@@ -35,11 +35,10 @@ app.post('/HW_Send', (req, res) => {
 app.get('/Temp_Hum/16', (req, res) => {
     Sensors.find({}).exec((err,rsp) => {
          
-         let dateStamp = [];
          for(let i = 0 ; i < Object.keys(rsp).length ;i++){
-            dateStamp[i] =  dateFormat(new Date(rsp[i].Timestamp).toLocaleString(), "dd mm yyyy H:MM:ss")
+            rsp[i].Timestamp =  dateFormat(new Date(rsp[i].Timestamp).toLocaleString(), "dd mm yyyy H:MM:ss")
          }
-          res.json(dateStamp);
+          res.json(rsp);
 
     });
 });
