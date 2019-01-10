@@ -98,7 +98,9 @@ app.get('/test', (req, res) => {
 csv
  .fromPath("sanam.csv")
  .on("data", function(data){
-     console.log(data[0].split(";"));
+     let data_new = [];
+     data_new = data[0].split(";")
+     console.log(data_new);
       //res.end(JSON.stringify(data));
       //res.json(JSON.stringify(data));
  })
