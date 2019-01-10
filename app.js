@@ -65,8 +65,9 @@ app.get('/getSanam/:hour', (req, res) => {
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
-            Beacons.find({},'Timestamp').sort({Timestamp: 'asc'}).limit(1).exec((err,test) => {
+            Beacons.find({ Timestamp : { $eq : Date_Diff_min }},'Timestamp').sort({Timestamp: 'asc'}).limit(1).exec((err,test) => {
                 console.log("test : ",test);
+                console.log("Date_Diff_min",Date_Diff_min);
             });
             if(show.length == 0){
                  res.json("ไม่พบข้อมูล");
