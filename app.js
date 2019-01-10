@@ -101,7 +101,7 @@ csv
      let data_new = [];
      data_new = data[0];
      let data_0= data_new.split(';');
-     console.log(typeof(data));
+     console.log(data);
       //res.end(JSON.stringify(data));
       //res.json(JSON.stringify(data));
  })
