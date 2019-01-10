@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var Sensors = require('./models/SensorData.model');
 var app = express();
 
-require('dateformat');
+const dateFormat = require('dateformat');
 // import * as dateFormat from "dateformat";
 
 app.use(bodyParser.json());
