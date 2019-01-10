@@ -63,7 +63,7 @@ app.get('/test', (req, res) => {
             })
             .on("end", function () {
                 for(let i = 1 ; i < Object.keys(data).length ; i++){
-                    buff[i - 1] = Object.values(data[i].toString());
+                    buff[i - 1] = Object.values(data[i]).toString();
                     data_arr[i - 1] = buff[i - 1].split(';');
                 }
                 console.log(data_arr);
