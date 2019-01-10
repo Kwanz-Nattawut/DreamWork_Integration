@@ -57,7 +57,7 @@ app.get('/getSanam/:hour', (req, res) => {
         Beacons.find({Timestamp : {
             $lte : Date_time,
             $gt :  Date_Diff
-        }}).select('P_IN','Timestamp').exec((err,rsp) => {
+        }},'P_IN Timestamp').exec((err,rsp) => {
             let show = [];
             //console.log(rsp[6].P_IN);
             console.log(rsp.length);
