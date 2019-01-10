@@ -100,9 +100,7 @@ csv
  .on("data", function(data){
      let data_new = [];
      data_new = data[0];
-     var data_0 = Object.keys(data_new).map(function(key) {
-        return [Number(key), data_new[key]];
-      });
+     var data_0 = Object.value(data_new);
     //  let data_0= data_new.split(';');
      console.log(data_0);
       //res.end(JSON.stringify(data));
