@@ -4,6 +4,7 @@ const http = require('http');
 var bodyParser = require('body-parser');
 var Sensors = require('./models/SensorData.model');
 var app = express();
+var dateformat = require('dateformat');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
@@ -32,16 +33,27 @@ app.post('/HW_Send', (req, res) => {
 app.get('/Temp_Hum/16', (req, res) => {
     Sensors.find({}).exec((err,rsp) => {
          res.json(rsp);
+         let datetest = [];
+         for(let i = 0 ; i < Object.keys(rsp).length ;i++){
+            datetest[i] =  dateFormat(rsp[i], "dddd dd mmmm yyyy H:MM:ss");
+         }
+         console.log(datetest);
+         
     });
 });
 
 app.get('/test', (req, res) => {
     request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, response, body) => {
-if (err) { return console.log(err); }
+    if (err) {
+
+        return console.log(err); 
+
+    }
     console.log(body[0].Temperature);
-     res.json(body[0].Temperature);
-     
-})
+    res.json(body[0].Temperature);
+
+});
+
 });
 
 
