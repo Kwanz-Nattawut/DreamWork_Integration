@@ -33,8 +33,8 @@ app.post('/putSanam', (req, res) => {
 });
 
 app.post('/HW_Send', (req, res) => {
-
-    var NewSensor = new Sensors(req.body);
+    console.log(req.body);
+    /*var NewSensor = new Sensors(req.body);
     NewSensor.save((err,sensor) => {
         if(err){
             throw err;
@@ -44,7 +44,7 @@ app.post('/HW_Send', (req, res) => {
             console.log(sensor);
             res.json(sensor);
         }
-    });
+    });*/
 
 });
 
@@ -57,7 +57,7 @@ app.get('/getSanam/:hour', (req, res) => {
         Beacons.find({Timestamp : {
             $lte : Date_time,
             $gt :  Date_Diff
-        }},'P_IN Timestamp').sort({Timestamp : 'asc'}).exec((err,rsp) => {
+        }},'P_IN Timestamp').exec((err,rsp) => {
             let show = [];
             //console.log(rsp[6].P_IN);
             //console.log(rsp[0])
@@ -65,12 +65,8 @@ app.get('/getSanam/:hour', (req, res) => {
                 show.push(rsp[i].P_IN);
             }
             
-            if(typeof(rsp[0].Timestamp) === 'undefined' || rsp[0].Timestamp > Date_Diff){
-                 res.json("ERROR");
-                 return ;
-            }
-            else if(show.length == 0){
-                 res.json("Data");
+            if(show.length == 0){
+                 res.json("ไม่พบข้อมูล");
             }
             else
             {
