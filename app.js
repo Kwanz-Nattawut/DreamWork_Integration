@@ -41,12 +41,7 @@ app.get('/test', (req, res) => {
         response.on('data', function(d) {
             body += d;
         });
-        response.on('end', function() {
-// Data received, let us parse it using JSON!
-            var parsed = JSON.parse(body);
-            console.log(parsed);
-             res.json(parsed);
-        });
+        console.log(body);
     })
 });
 
