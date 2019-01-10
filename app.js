@@ -99,6 +99,7 @@ csv
  .fromPath("sanam.csv")
  .on("data", function(data){
      console.log(data);
+      res.json(data);
  })
  .on("end", function(){
      console.log("done");
