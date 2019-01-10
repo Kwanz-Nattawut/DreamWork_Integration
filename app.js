@@ -33,12 +33,6 @@ app.post('/HW_Send', (req, res) => {
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
-    Sensors.find({}).exec((err,rsp) => {
-         res.json(rsp);
-    });
-});
-
-app.get('/test2', (req, res) => {
     let Date_time = new Date();
     let Date_Diff = new Date();
     Date_Diff.setHours( Date_Diff.getHours() - 1);
@@ -52,6 +46,7 @@ app.get('/test2', (req, res) => {
          res.json(rsp);
     });
 });
+
 
 app.get('/test', (req, res) => {
     request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, response, body) => {
