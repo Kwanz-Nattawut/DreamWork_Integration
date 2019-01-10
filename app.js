@@ -33,7 +33,7 @@ app.post('/HW_Send', (req, res) => {
 //         res.json(NewSensor);
 //        }
 //     });
-    var NewBeacon = new Sensors(req.body);
+    var NewBeacon = new Beacons(req.body);
     NewBeacon.save((err) => {
         if(err){
             throw err;
