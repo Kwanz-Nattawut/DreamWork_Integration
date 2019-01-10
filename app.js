@@ -83,7 +83,7 @@ app.get('/Temp_Hum/16', (req, res) => {
 });
 
 
-app.get('/test', (req, res) => {
+/*app.get('/test', (req, res) => {
 
     let data = [];
     let buff = [];
@@ -112,7 +112,7 @@ app.get('/test', (req, res) => {
             });
     });
 
-});
+});*/
 
 app.listen(3000, () => {
     console.log(`Server started on port 3000 \n http://localhost:3000/`);
