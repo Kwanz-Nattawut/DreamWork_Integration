@@ -97,35 +97,7 @@ app.get('/test', (req, res) => {
                 console.log(data);
             });
     });
-
-
-    /*request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, response, body) => {
-    if (err) {
-
-        return console.log(err); 
-
-    }
-    console.log(body[0].Temperature);
-    res.json(body[0].Temperature);
-
-});*/
-
-// csv
-//  .fromPath("sanam.csv")
-//  .on("data", function(data){
-//      let data_new = [];
-//      data_new = data[0];
-//      var data_0 = Object.values(data);
-//      let data_1= data_0[0].split(';');
-//      console.log(Object.values(data) );
-//       //res.end(JSON.stringify(data));
-//       //res.json(JSON.stringify(data));
-//  })
-//  .on("end", function(){
-//      //console.log("done");
-//  });
-// });
-
+});
 
 app.listen(3000, () => {
     console.log(`Server started on port 3000 \n http://localhost:3000/`);
