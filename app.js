@@ -3,6 +3,7 @@ var request = require('request');
 const http = require('http');
 var bodyParser = require('body-parser');
 var Sensors = require('./models/SensorData.model');
+var Beacons = require('./models/BeaconData.model');
 var app = express();
 
 const dateFormat = require('dateformat');
@@ -21,10 +22,13 @@ app.post('/beacon', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
     var all = req.body;
-    console.log(all);
-    var New = new Sensors(all);
+    var NewSensor = new Sensors(all);
+    var NewBeacon = new Beacons();
+    NewBeacon.P_IN = req.body.P_IN;
+    NewBeacon.P_OUT = req.body.P_OUT;
+    NewBeacon.Timestamp = req.body.Timestamp
 
-    New.save((err,rsp) => {
+    NewSensor.save((err,rsp) => {
         if(err){
             console.log("error");
         }
@@ -33,8 +37,18 @@ app.post('/HW_Send', (req, res) => {
              res.json(rsp);
              //console.log(rsp[0]);
         }
-    })
-    console.log(New);
+    });
+    NewBeacon.save((err,rsp) => {
+        if(err){
+            console.log("error");
+        }
+        else
+        {
+             res.json(rsp);
+             //console.log(rsp[0]);
+        }
+    });
+    console.log(all);
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
