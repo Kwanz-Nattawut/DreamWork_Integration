@@ -33,9 +33,16 @@ app.post('/HW_Send', (req, res) => {
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
+    Sensors.find({}).exec((err,rsp) => {
+         res.json(rsp);
+    });
+});
+
+app.get('/test2', (req, res) => {
     let Date_time = new Date();
     let Date_Diff = new Date();
     Date_Diff.setHours - 1;
+    Date_Diff = new Date(Date_Diff).toLocaleString();
     console.log(Date_Diff,Date_time);
     Sensors.find({Timestamp : {
         $lte : Date_time,
