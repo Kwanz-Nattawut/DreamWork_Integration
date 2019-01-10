@@ -60,7 +60,7 @@ app.get('/getSanam/:hour', (req, res) => {
         }}).select('P_IN').exec((err,rsp) => {
             let show = [];
             console.log(rsp[6].P_IN);
-            for(let i = 0 ; i < Object.keys(show).length ; i ++){
+            for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 //show.push(rsp[i].P_IN);
             }
              res.json(show);
