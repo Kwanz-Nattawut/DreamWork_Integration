@@ -92,7 +92,12 @@ app.get('/test', (req, res) => {
                     data_arr[i - 1] = buff[i - 1].split(';');
                 }
                 resolve(data_arr);
-                console.log(data_arr[(Object.keys(data_arr).length - 1)]);
+                console.log(data_arr[0].length,data_arr.length);
+                /*for(let j = 0 ; j < Object.keys(data_arr).length ; j++){
+                    for(let i = 0 ; i < 25 ; i ++){
+                        Beacons.create({P_IN : data_arr[0][i + 1] , P_OUT : 0 , Timestamp : data_arr[0][0]});
+                    }
+                } */
             });
     });
 
