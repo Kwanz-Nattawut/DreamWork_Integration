@@ -63,9 +63,12 @@ app.get('/getSanam/:hour', (req, res) => {
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
-            if(show.length == 0)
+            if(show.length < req.params.hour)
             {
                 res.json("Error");
+            }
+            else if(show.length == 0){
+                 res.json("ไม่พบข้อมูลการเข้าชม เวลานี้");
             }
             else
             {
