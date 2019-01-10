@@ -76,13 +76,18 @@ app.get('/getSanam/:hour', (req, res) => {
                 else
                 {
                      Beacons.find({},'P_IN').exec((err,beacon) => {
-                          res.json(beacon);
+                         let show = [];
+                        for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
+                            show.push(beacon[i].P_IN);
+                        }
+                          res.json(show);
+                          console.log(beacon.length,parseInt(req.params.hour));
                      });
                 }
                 console.log("Date_Diff_min",Math.abs(test[0].Timestamp - cur)/36e5);
             });
 
-            // console.log(show.length,parseInt(req.params.hour));
+            
       
     });
 
