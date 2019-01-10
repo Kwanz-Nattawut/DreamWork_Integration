@@ -20,15 +20,26 @@ app.post('/beacon', (req, res) => {
 });
 
 app.post('/HW_Send', (req, res) => {
-    var NewSensor = new Sensors(req.body);
-    NewSensor.save((err) => {
+    //var NewSensor = new Sensors(req.body);
+    // NewSensor.save((err) => {
+    //     if(err){
+    //         throw err;
+    //     }
+    //     else
+    //     {
+    //         console.log(NewSensor);
+    //          res.json(NewSensor);
+    //     }
+    // });
+
+    Sensors.create(req.body,(err,sensor) => {
         if(err){
-            throw err;
+            console.log(err)
         }
         else
         {
-            console.log(NewSensor);
-             res.json(NewSensor);
+             res.json(sensor);
+            console.log(sensor);
         }
     });
 
