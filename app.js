@@ -22,7 +22,12 @@ app.post('/beacon', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
    var NewSensor = new Sensors(req.body);
-   var NewBeacon = new Beacons(req.body);
+   var NewB = {};
+   NewBeacon.P_IN = req.body.P_IN;
+   NewBeacon.P_OUT = req.body.P_OUT;
+   NewBeacon.Timestamp = req.body.Timestamp;
+
+   var NewBeacon = new Beacons(NewB);
    NewSensor.save((err) => {
        if(err)
        {
