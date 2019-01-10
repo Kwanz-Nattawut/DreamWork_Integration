@@ -24,7 +24,7 @@ app.post('/HW_Send', (req, res) => {
    var NewSensor = new Sensors(req.body);
 
    console.log(NewSensor);
-   
+   res.end(JSON.stringify(NewSensor));
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
