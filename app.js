@@ -34,10 +34,11 @@ app.post('/HW_Send', (req, res) => {
 
 app.get('/Temp_Hum/16', (req, res) => {
     let Date_time = new Date();
-    let DateDiff_60 = Date_time.setHours - 1;
+    let Date_Diff = new Date();
+    Date_Diff.setHours - 1;
     Sensors.find({Timestamp : {
         $lte : Date_time,
-        $gt :  DateDiff_60
+        $gt :  Date_Diff
     }}).exec((err,rsp) => {
          res.json(rsp);
     });
