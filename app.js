@@ -38,7 +38,9 @@ app.get('/Temp_Hum/16', (req, res) => {
 app.get('/test', (req, res) => {
     request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, res, body) => {
 if (err) { return console.log(err); }
-console.log(body)
+    console.log(body);
+     res.json(body);
+     
 })
 });
 
