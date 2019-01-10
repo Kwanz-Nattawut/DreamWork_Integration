@@ -102,8 +102,8 @@ app.get('/test', (req, res) => {
                 resolve(data_arr);
                 console.log(data_arr[0].length,data_arr.length);
                 for(let j = 0 ; j < data_arr.length ; j++){
-                    for(let i = 0 ; i < data_arr[0].length ; i ++){
-                        Beacons.insertMany({P_IN : data_arr[j][i + 1] , P_OUT : 0 , Timestamp : data_arr[j][0]});
+                    for(let i = 1 ; i < data_arr[0].length ; i ++){
+                        Beacons.insertMany({P_IN : data_arr[j][i] , P_OUT : 0 , Timestamp : data_arr[j][0]});
                     }
                 } 
                 Beacons.find({}).exec((err,beacon) => {
