@@ -97,6 +97,7 @@ app.get('/test', (req, res) => {
                 console.log(data);
             });
     });
+    console.log(data[0])
 });
 
 app.listen(3000, () => {
