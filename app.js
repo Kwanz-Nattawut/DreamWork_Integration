@@ -99,10 +99,10 @@ csv
  .fromPath("sanam.csv")
  .on("data", function(data){
      console.log(data);
-      res.json(data);
+      res.json(JSON.parse(data));
  })
  .on("end", function(){
-     console.log("done");
+     //console.log("done");
  });
 });
 
