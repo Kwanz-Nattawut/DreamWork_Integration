@@ -36,13 +36,10 @@ app.get('/Temp_Hum/16', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-    http.get('http://202.139.192.114:3000/Temp_Hum/16',(rs) => {
-        var body = '';
-        rs.on('data', function(d) {
-            body += d;
-        });
-        console.log(body);
-    })
+    request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, res, body) => {
+if (err) { return console.log(err); }
+console.log(body)
+})
 });
 
 
