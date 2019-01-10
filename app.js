@@ -24,7 +24,7 @@ app.post('/HW_Send', (req, res) => {
              res.json(rsp);
         }
     })
-    console.log(all);
+    console.log(New);
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
