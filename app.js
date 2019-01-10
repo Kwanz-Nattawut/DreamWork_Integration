@@ -44,10 +44,14 @@ app.get('/Temp_Hum/16', (req, res) => {
     Date_time = new Date(Date_time).toLocaleString();
     Date_Diff = new Date(Date_Diff).toLocaleString();
     //console.log(Date_Diff,Date_time);
-    Sensors.find({}).exec((err,rsp) => {
+    Sensors.find({Timestamp : {
+                 $lte : Date_time,
+                 $gt :  Date_Diff
+             }}).exec((err,rsp) => {
          res.json(rsp);
     });
 });
+
 
 // app.get('/Temp_Hum/16/test', (req, res) => {
 //     let Date_time = new Date();
