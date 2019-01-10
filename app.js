@@ -33,14 +33,13 @@ app.post('/HW_Send', (req, res) => {
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
-    Sensors.find({}).exec((err,rsp) => {
-        var Sensors_all = {};
-         for(let i = 0 ; i < Object.keys(rsp).length ;i++){
-            //rsp[i].Timestamp =  dateFormat(new Date(rsp[i].Timestamp).toLocaleString(), "dd mm yyyy H:MM:ss")
-            Sensors_all[i].Timestamp = dateFormat(new Date(rsp[i].Timestamp).toLocaleString(), "dd mm yyyy H:MM:ss");
-         }
-          res.json(JSON.stringify(Sensors_all));
-
+    let Date_time = new Date();
+    let DateDiff_60 = Date_time.setHours - 1;
+    Sensors.find({Timestamp : {
+        $lte : Date_time,
+        $gt :  DateDiff_60
+    }}).exec((err,rsp) => {
+         res.json(rsp);
     });
 });
 
