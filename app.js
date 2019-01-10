@@ -39,7 +39,7 @@ app.get('/Temp_Hum/16', (req, res) => {
             //rsp[i].Timestamp =  dateFormat(new Date(rsp[i].Timestamp).toLocaleString(), "dd mm yyyy H:MM:ss")
             Sensors_all[i].Timestamp = dateFormat(new Date(rsp[i].Timestamp).toLocaleString(), "dd mm yyyy H:MM:ss");
          }
-          res.json(Sensors_all);
+          res.json(JSON.stringify(Sensors_all));
 
     });
 });
