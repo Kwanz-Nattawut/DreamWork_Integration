@@ -49,6 +49,7 @@ app.post('/HW_Send', (req, res) => {
         }
     });*/
     console.log(all);
+     res.json(all);
 });
 
 app.get('/Temp_Hum/16', (req, res) => {
