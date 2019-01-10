@@ -88,7 +88,7 @@ app.get('/test', (req, res) => {
     let data = [];
     return new Promise(function (resolve, reject) {
         csv
-            .fromPath("./data/THB.csv")
+            .fromPath("./sanam.csv")
             .on("data", function (str) {
                 data.push(str);
             })
