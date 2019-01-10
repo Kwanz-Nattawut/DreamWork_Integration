@@ -20,61 +20,20 @@ app.post('/beacon', (req, res) => {
 });
 
 app.post('/HW_Send', (req, res) => {
-    //var NewSensor = new Sensors(req.body);
-    // NewSensor.save((err) => {
-    //     if(err){
-    //         throw err;
-    //     }
-    //     else
-    //     {
-    //         console.log(NewSensor);
-    //          res.json(NewSensor);
-    //     }
-    // });
-    var Sensors = new Promise((resolve, reject) => {
-        Sensors.create(req.body,(err,sensor) => {
-                if(err){
-                    console.log(err)
-                }
-                else
-                {
-                   res.json(sensor);
-                    console.log(sensor);
-                }
-             });
-             resolve(sensor);
+    var NewSensor = new Sensors(req.body);
+    NewSensor.save((err,sensor) => {
+        if(err){
+            throw err;
+        }
+        else
+        {
+            console.log(sensor);
+            res.json(sensor);
+        }
     });
 
-    var Beacons = new Promise((resolve, reject) => {
-        Sensors.create(req.body,(err,beacon) => {
-            if(err){
-                console.log(err)
-            }
-            else
-            {
-                 res.json(beacon);
-                console.log(beacon);
-            }
-        });
-        resolve(beacon);
-    });
-    /*Promise.all([Sensors, Beacons]).then(function(values) {
-        console.log(values);
-      });*/
-    
-    
-
-    // Beacons.create({P_IN : req.body.P_IN , P_OUT : req.body.P_OUT},(err,beacon) => {
-    //     if(err){
-    //         console.log(err)
-    //     }
-    //     else
-    //     {
-    //          res.json(beacon);
-    //         console.log(beacon);
-    //     }
-    // });
 });
+
 
 
 app.get('/Temp_Hum/16', (req, res) => {
