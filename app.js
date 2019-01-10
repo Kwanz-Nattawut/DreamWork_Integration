@@ -33,11 +33,7 @@ app.post('/beacon', (req, res) => {
 });
 
 app.post('/HW_Send', (req, res) => {
-    let Date_time = new Date();
-    let Date_Diff = new Date();
-    Date_Diff.setHours( Date_Diff.getHours() - 1);
-    Date_time = new Date(Date_time).toLocaleString();
-    Date_Diff = new Date(Date_Diff).toLocaleString();
+    
     var NewSensor = new Sensors(req.body);
     NewSensor.save((err,sensor) => {
         if(err){
@@ -53,6 +49,11 @@ app.post('/HW_Send', (req, res) => {
 });
 
 app.get('/Beacon/16', (req, res) => {
+    let Date_time = new Date();
+    let Date_Diff = new Date();
+    Date_Diff.setHours( Date_Diff.getHours() - 1);
+    Date_time = new Date(Date_time).toLocaleString();
+    Date_Diff = new Date(Date_Diff).toLocaleString();
     Beacons.find({Timestamp : {
         $lte : Date_time,
         $gt :  Date_Diff
