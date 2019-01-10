@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
     res.send("<h1>TESA TOP GUN REALLY 2019 DREAMWORK</h1>");
 });
 
-app.post('/beacon', (req, res) => {
+app.post('/putSanam', (req, res) => {
     var NewBeacon = new Beacons(req.body);
     NewBeacon.save((err,beacon) => {
         if(err){
