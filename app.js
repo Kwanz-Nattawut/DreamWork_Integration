@@ -67,8 +67,9 @@ app.get('/getSanam/:hour', (req, res) => {
             
             if(typeof(rsp[0].Timestamp) === 'undefined'){
                  res.json("ERROR");
+                 return ;
             }
-            if(show.length == 0){
+            else if(show.length == 0){
                  res.json("Data");
             }
             else
