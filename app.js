@@ -60,7 +60,7 @@ app.get('/getSanam/:hour', (req, res) => {
         }},'P_IN Timestamp').sort({Timestamp : 'asc'}).exec((err,rsp) => {
             let show = [];
             //console.log(rsp[6].P_IN);
-            console.log(rsp.length, rsp[0].Timestamp);
+            console.log(rsp.length, new Date(rsp[0].Timestamp).toLocaleString());
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
