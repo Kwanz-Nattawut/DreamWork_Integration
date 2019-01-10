@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var Sensors = require('./models/SensorData.model');
 var app = express();
 
-var datetest = require('dateformat');
+require('dateformat');
 // import * as dateFormat from "dateformat";
 
 app.use(bodyParser.json());
@@ -40,8 +40,8 @@ app.get('/Temp_Hum/16', (req, res) => {
             datetest[i] =  dateFormat(rsp[i].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
          }
          console.log(datetest);*/
-         datetest = dateFormat(rsp[0].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
-          res.json(datetest);
+         var test = dateFormat(rsp[0].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
+          res.json(test);
 
     });
 });
