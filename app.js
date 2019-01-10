@@ -40,8 +40,8 @@ app.get('/Temp_Hum/16', (req, res) => {
             datetest[i] =  dateFormat(rsp[i].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
          }
          console.log(datetest);*/
-         var test = dateFormat(rsp[0].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
-          res.json(test);
+        //  var test = dateFormat(rsp[0].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
+        res.json(rsp[0].Timestamp);
 
     });
 });
