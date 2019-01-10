@@ -22,6 +22,7 @@ app.post('/beacon', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
    add(req.body);
+   add1(req.body);
 });
 
 
