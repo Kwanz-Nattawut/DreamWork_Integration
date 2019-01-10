@@ -63,6 +63,7 @@ app.get('/getSanam/:hour', (req, res) => {
                 show.push(rsp[i].P_IN);
             }
              res.json(show);
+             console.log(show,show.length);
         });
     });
 
