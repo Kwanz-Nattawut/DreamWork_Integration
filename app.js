@@ -32,13 +32,13 @@ app.post('/HW_Send', (req, res) => {
 
 app.get('/Temp_Hum/16', (req, res) => {
     Sensors.find({}).exec((err,rsp) => {
-         //res.json(rsp);
+         res.json(rsp[0].Timestamp);
          let datetest = [];
-         for(let i = 0 ; i < Object.keys(rsp).length ;i++){
+         /*for(let i = 0 ; i < Object.keys(rsp).length ;i++){
             datetest[i] =  dateFormat(rsp[i].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
          }
-         console.log(datetest);
-         
+         console.log(datetest);*/
+
     });
 });
 
