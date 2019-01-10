@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var Sensors = require('./models/SensorData.model');
 var Beacons = require('./models/BeaconData.model');
 var app = express();
-
+var csv = require("fast-csv");
 const dateFormat = require('dateformat');
 // import * as dateFormat from "dateformat";
 
@@ -84,7 +84,7 @@ app.get('/Temp_Hum/16', (req, res) => {
 //     });
 // });
 app.get('/test', (req, res) => {
-    request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, response, body) => {
+    /*request('http://202.139.192.114:3000/Temp_Hum/16', { json: true }, (err, response, body) => {
     if (err) {
 
         return console.log(err); 
@@ -93,8 +93,16 @@ app.get('/test', (req, res) => {
     console.log(body[0].Temperature);
     res.json(body[0].Temperature);
 
-});
+});*/
 
+csv
+ .fromPath("sanam.csv")
+ .on("data", function(data){
+     console.log(data);
+ })
+ .on("end", function(){
+     console.log("done");
+ });
 });
 
 
