@@ -99,7 +99,7 @@ csv
  .fromPath("sanam.csv")
  .on("data", function(data){
      let data_new = [];
-     data_new = data[0][0]
+     data_new = data[0,5][0]
      //let data_0= data_new[6].split(' ');
      console.log(data_new);
       //res.end(JSON.stringify(data));
