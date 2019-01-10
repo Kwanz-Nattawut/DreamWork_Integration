@@ -45,6 +45,7 @@ app.get('/test', (req, res) => {
   console.log(data);
    res.json(data);
 });
+}
 
 
 app.listen(3000, () => {
