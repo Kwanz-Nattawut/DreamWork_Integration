@@ -28,8 +28,6 @@ app.post('/beacon', (req, res) => {
     //     }
     // });
     console.log(req.body);
-
-    request.post('',{},())
 });
 
 app.post('/HW_Send', (req, res) => {
