@@ -22,8 +22,8 @@ app.post('/HW_Send', (req, res) => {
         }
         else
         {
-             res.json(rsp);
-             console.log(rsp[0]);
+             res.json(rsp[0]);
+             //console.log(rsp[0]);
         }
     })
     console.log(New);
