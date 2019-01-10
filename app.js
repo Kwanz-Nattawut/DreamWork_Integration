@@ -64,7 +64,9 @@ app.get('/getSanam/:hour', (req, res) => {
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
-            console.log(Beacons.find({}).min());
+            Beacons.find({$min : "$Timestamp"}).exec((err,rsp)=>{
+                console.log(rsp);
+            });
             if(show.length == 0){
                  res.json("ไม่พบข้อมูล");
             }
