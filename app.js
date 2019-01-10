@@ -34,19 +34,12 @@ app.post('/HW_Send', (req, res) => {
 
 app.get('/Temp_Hum/16', (req, res) => {
     Sensors.find({}).exec((err,rsp) => {
-         //res.json(rsp[0].Timestamp);
-         //let datetest = [];
-         /*for(let i = 0 ; i < Object.keys(rsp).length ;i++){
-            datetest[i] =  dateFormat(rsp[i].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
+         
+         let dateStamp = [];
+         for(let i = 0 ; i < Object.keys(rsp).length ;i++){
+            dateStamp[i] =  dateFormat(new Date(rsp[i].Timestamp).toLocaleString(), "dd mm yyyy H:MM:ss")
          }
-         console.log(datetest);*/
-        //  var test = dateFormat(rsp[0].Timestamp, "dddd dd mmmm yyyy H:MM:ss");
-        var t = rsp[0].Timestamp;
-        //var test = new Date(t);
-        var test = dateFormat(new Date(t).toLocaleString(), "dd mm yyyy H:MM:ss")
-        //var s = new Date().toLocaleString();
-         console.log(test);
-          res.json(test);
+          res.json(dateStamp);
 
     });
 });
