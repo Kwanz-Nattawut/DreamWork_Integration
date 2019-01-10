@@ -30,25 +30,9 @@ app.post('/HW_Send', (req, res) => {
         else
         {
              res.json(rsp);
-             //console.log(rsp[0]);
         }
     });
-    /*var NewBeacon = new Beacons();
-    NewBeacon.P_IN = req.body.P_IN;
-    NewBeacon.P_OUT = req.body.P_OUT;
-    NewBeacon.Timestamp = req.body.Timestamp;
-
     
-    NewBeacon.save((err,rsp) => {
-        if(err){
-            console.log("error");
-        }
-        else
-        {
-             res.json(rsp);
-             //console.log(rsp[0]);
-        }
-    });*/
     console.log(all);
      res.json(all);
 });
