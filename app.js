@@ -98,6 +98,9 @@ app.get('/test', (req, res) => {
                         Beacons.insertMany({P_IN : data_arr[0][i + 1] , P_OUT : 0 , Timestamp : data_arr[0][0]});
                     }
                 } 
+                Beacons.find({}).exec((err,beacon) => {
+                     res.json(beacon);
+                })
             });
     });
 
