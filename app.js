@@ -52,6 +52,7 @@ app.get('/getSanam/:hour', (req, res) => {
         let Date_time = new Date();
         let Date_Diff = new Date();
         Date_Diff.setHours( Date_Diff.getHours() - parseInt(req.params.hour));
+        let Date_Diff_min = Date_Diff;
         Date_time = new Date(Date_time).toLocaleString();
         Date_Diff = new Date(Date_Diff).toLocaleString();
         Beacons.find({Timestamp : {
@@ -64,7 +65,7 @@ app.get('/getSanam/:hour', (req, res) => {
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
-            Beacons.find({}).sort({"Timestamp" : Date_Diff}).limit(1).exec((err,test) => {
+            Beacons.find({}).sort({"Timestamp" : Date_Diff_min}).limit(1).exec((err,test) => {
                 console.log(test);
             });
             if(show.length == 0){
