@@ -22,7 +22,7 @@ app.post('/HW_Send', (req, res) => {
         }
         else
         {
-             res.json(rsp[0]);
+             res.json(rsp);
              //console.log(rsp[0]);
         }
     })
@@ -36,7 +36,18 @@ app.get('/Temp_Hum/16', (req, res) => {
 });
 
 app.get('/test', (req, res) => {
-    
+    http.get('http://202.139.192.114:3000/Temp_Hum/16',(res) => {
+        var body = '';
+        response.on('data', function(d) {
+            body += d;
+        });
+        response.on('end', function() {
+// Data received, let us parse it using JSON!
+            var parsed = JSON.parse(body);
+            console.log(parsed);
+             res.json(parsed);
+        });
+    })
 });
 
 
