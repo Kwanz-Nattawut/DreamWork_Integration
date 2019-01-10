@@ -100,7 +100,7 @@ csv
  .on("data", function(data){
      let data_new = [];
      data_new = data[0].split(";")
-     console.log(data_new[0][1]);
+     console.log(data_new[6][0]);
       //res.end(JSON.stringify(data));
       //res.json(JSON.stringify(data));
  })
