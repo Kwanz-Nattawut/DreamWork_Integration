@@ -96,9 +96,9 @@ app.get('/test', (req, res) => {
             .on("end", function () {
                 resolve(data);
                 console.log(typeof(data[1]));
-                for(let i=1; i<=data.length; i++){
-                    buff[i] = data[i].toString().split(';');
-                }
+                /*for(let i=1; i<=data.length; i++){
+                    
+                }*/
                 console.log(buff);
             });
         //console.log(data[0])
