@@ -82,7 +82,7 @@ app.get('/getSanam/:hour', (req, res) => {
                 console.log("Date_Diff_min",Math.abs(test[0].Timestamp - cur)/36e5);
             });
 
-             console.log(show.length,parseInt(req.params.hour));
+            // console.log(show.length,parseInt(req.params.hour));
       
     });
 
