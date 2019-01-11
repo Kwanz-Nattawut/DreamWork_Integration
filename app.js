@@ -72,7 +72,7 @@ NewSensor.Temperature = req.body.Temperature;
 NewSensor.Humidity = req.body.Humidity;
 NewSensor.P_IN = req.body.P_IN;
 NewSensor.P_OUT = req.body.P_OUT;
-NewSensor.Timestamp = new Date().toLocaleString();
+//NewSensor.Timestamp = new Date().toLocaleString();
     NewSensor.save((err,sensor) => {
         if(err){
             throw err;
