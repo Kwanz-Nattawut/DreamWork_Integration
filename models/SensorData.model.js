@@ -1,4 +1,5 @@
 var mongoose = require('../db/mongoose');
+const timeZone = require('mongoose-timezone');
 
 var Schema = mongoose.Schema;
 
@@ -9,8 +10,10 @@ var SensorData = new Schema({
     P_OUT : Number,
     Timestamp : {
         type : Date,
-        default : new Date().toLocaleString()
+        default : Date.now
     }
 });
+
+Schema.plugin(timeZone, { paths: ['date', 'subDocument.subDate'] });
 
 module.exports = mongoose.model('SensorData',SensorData);

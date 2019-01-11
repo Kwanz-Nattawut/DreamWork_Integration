@@ -6,6 +6,7 @@
     "fast-csv": "^2.4.1",
     "http": "^0.0.0",
     "mongoose": "^5.4.3",
+    "mongoose-timezone": "^1.1.0",
     "request": "^2.88.0"
   }
 }
