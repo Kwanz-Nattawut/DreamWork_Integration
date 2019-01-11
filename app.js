@@ -53,15 +53,15 @@ app.post('/HW_Send', (req, res) => {
     var NewSensor = new Sensors();
     NewSensor.Temperature = dec_temp;
     NewSensor.Humidity = dec_hum;
-    
+
     var p_in_data = (Math.random() * 10);
     var p_out_data = (Math.random() * 10);
     if((p_in_data - p_out_data) <= 2 && p_in_data > p_out_data){
         //console.log(p_in_data,p_out_data);
-        NewSensor.P_IN = p_in_data;
-        NewSensor.P_OUT = p_out_data;
+        NewSensor.P_IN = Math.round(p_in_data);
+        NewSensor.P_OUT = Math.round(p_out_data);
     }
-    
+
     NewSensor.save((err,sensor) => {
         if(err){
             throw err;
