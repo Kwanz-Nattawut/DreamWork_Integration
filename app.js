@@ -36,7 +36,7 @@ app.post('/HW_Send', (req, res) => {
     console.log(req.body);
     var hwSend = req.body.DevEUI_uplink.payload_hex;
     console.log(hwSend,hwSend.length);
-    let sp = hwSend.split('',2);
+    //let sp = hwSend.split('',2);
     //let type = "";
     let temp = "";
     let hum = "";
@@ -146,7 +146,7 @@ app.get('/Temp_Hum/16', (req, res) => {  //all data sensordatas
 });
 
 
-/*app.get('/test', (req, res) => {
+app.get('/test', (req, res) => {
 
     let data = [];
     let buff = [];
@@ -175,7 +175,7 @@ app.get('/Temp_Hum/16', (req, res) => {  //all data sensordatas
             });
     });
 
-});*/
+});
 
 app.listen(3000, () => {
     console.log(`Server started on port 3000 \n http://localhost:3000/`);
