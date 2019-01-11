@@ -105,6 +105,7 @@ app.get('/getSanam/:hour', (req, res) => {
             for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
+             res.json(show);
         });
           /* Beacons.find({}).sort({Timestamp: 'asc'}).limit(1).exec((err,test) => {
                 //console.log("test : ",test);
