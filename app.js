@@ -36,6 +36,7 @@ app.post('/HW_Send', (req, res) => {
     console.log(req.body);
     var hwSend = req.body.DevEUI_uplink.payload_hex;
     console.log(hwSend);
+    console.log(hwSend[0]);
     /*var NewSensor = new Sensors();
     NewSensor.Temperature = req.body;
     NewSensor.Humidity = req.body;
