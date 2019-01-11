@@ -37,8 +37,16 @@ app.post('/HW_Send', (req, res) => {
     var hwSend = req.body.DevEUI_uplink.payload_hex;
     console.log(hwSend,hwSend.length);
     let sp = hwSend.split('',2);
-    //for(let i = 0 ; i < )
-    //console.log(hwSend[0]);
+    //let type = "";
+    let temp = "";
+    let hum = "";
+    
+    for(let i = 4 ; i <= 7 ; i++){
+        temp += hwSend[i];
+        hum += hwSend[i + 4];
+    }
+
+    console.log(temp,hum);
     //console.log(typeof(hwSend));
     //for(let i = 0 ; i < h)
     /*var NewSensor = new Sensors();
