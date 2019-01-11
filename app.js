@@ -47,14 +47,21 @@ app.post('/HW_Send', (req, res) => {
     }
     var dec_temp = parseInt(temp,16);
     var dec_hum = parseInt(hum,16);
-    console.log(dec_temp,dec_hum);
+    //console.log(dec_temp,dec_hum);
     //console.log(typeof(hwSend));
     //for(let i = 0 ; i < h)
-    /*var NewSensor = new Sensors();
-    NewSensor.Temperature = req.body;
-    NewSensor.Humidity = req.body;
-    NewSensor.P_IN = req.body;
-    NewSensor.P_OUT = req.body;
+    var NewSensor = new Sensors();
+    NewSensor.Temperature = dec_temp;
+    NewSensor.Humidity = dec_hum;
+    
+    var p_in_data = (Math.random() * 10);
+    var p_out_data = (Math.random() * 10);
+    if((p_in_data - p_out_data) <= 2 && p_in_data > p_out_data){
+        //console.log(p_in_data,p_out_data);
+        NewSensor.P_IN = p_in_data;
+        NewSensor.P_OUT = p_out_data;
+    }
+    
     NewSensor.save((err,sensor) => {
         if(err){
             throw err;
@@ -64,7 +71,7 @@ app.post('/HW_Send', (req, res) => {
             console.log(sensor);
             res.json(sensor);
         }
-    });*/
+    });
 
 
 });
