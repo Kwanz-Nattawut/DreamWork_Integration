@@ -45,7 +45,7 @@ app.post('/HW_Send', (req, res) => {
         temp += hwSend[i];
         hum += hwSend[i + 8];
     }
-    parseInt(temp,16);
+    parseInt(temp,10);
     console.log(temp,hum);
     //console.log(typeof(hwSend));
     //for(let i = 0 ; i < h)
