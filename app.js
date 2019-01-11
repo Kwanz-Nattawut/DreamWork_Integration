@@ -61,6 +61,11 @@ app.post('/HW_Send', (req, res) => {
         NewSensor.P_IN = Math.round(p_in_data);
         NewSensor.P_OUT = Math.round(p_out_data);
     }
+    else
+    {
+        NewSensor.P_IN = 1;
+        NewSensor.P_OUT = 0;
+    }
 
     NewSensor.save((err,sensor) => {
         if(err){
