@@ -48,6 +48,13 @@ app.post('/HW_Send', (req, res) => {
 
 });
 
+
+app.post('/predict/post', (req, res) => {
+    var json_predict = req.body;
+    console.log(json_predict);
+});
+
+
 app.get('/getSanam/:hour', (req, res) => {
         let Date_time = new Date();
         let Date_Diff = new Date();
@@ -91,13 +98,13 @@ app.get('/getSanam/:hour', (req, res) => {
       
     });
 
-app.get('/beacon/train/16', (req, res) => {
+app.get('/beacon/train/16', (req, res) => { ///all data beacondatas
     Beacons.find({}).exec((err,rsp) => {
         res.json(rsp);
     });
 });
 
-app.get('/Temp_Hum/16', (req, res) => {
+app.get('/Temp_Hum/16', (req, res) => {  //all data sensordatas
 
     //console.log(Date_Diff,Date_time);
     Sensors.find({}).exec((err,rsp) => {
