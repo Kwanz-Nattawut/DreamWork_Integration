@@ -14,6 +14,6 @@ var SensorData = new Schema({
     }
 });
 
-Schema.plugin(timeZone, { paths: ['date', 'subDocument.subDate'] });
+Schema.plugin(timeZone, { paths: ['Timestamp'] });
 
 module.exports = mongoose.model('SensorData',SensorData);
