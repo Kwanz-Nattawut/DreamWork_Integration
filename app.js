@@ -95,18 +95,18 @@ app.get('/getSanam/:hour', (req, res) => {
         let Date_Diff_min = Date_Diff;
         Date_time = new Date(Date_time).toLocaleString();
         Date_Diff = new Date(Date_Diff).toLocaleString();
-        /*Beacons.find({Timestamp : {
+        Beacons.find({Timestamp : {
             $lte : Date_time,
             $gt :  Date_Diff
         }},'P_IN Timestamp').exec((err,rsp) => {
             let show = [];
             //console.log(rsp[6].P_IN);
             //console.log(rsp[0])
-            /*for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
+            for(let i = 0 ; i < Object.keys(rsp).length ; i ++){
                 show.push(rsp[i].P_IN);
             }
-        });*/
-            Beacons.find({}).sort({Timestamp: 'asc'}).limit(1).exec((err,test) => {
+        });
+          /* Beacons.find({}).sort({Timestamp: 'asc'}).limit(1).exec((err,test) => {
                 //console.log("test : ",test);
                 var cur = new Date();
                 var diff = Math.abs(test[0].Timestamp - cur)/36e5;
@@ -125,7 +125,7 @@ app.get('/getSanam/:hour', (req, res) => {
                      });
                 }
                 console.log("Date_Diff_min",Math.abs(test[0].Timestamp - cur)/36e5);
-            });
+            });*/
 
             
       
