@@ -34,7 +34,13 @@ app.post('/putSanam', (req, res) => {
 
 app.post('/HW_Send', (req, res) => {
     console.log(req.body);
-    /*var NewSensor = new Sensors(req.body);
+    var hwSend = req.body.DevEUI_uplink.payload_hex;
+    console.log(hwSend);
+    /*var NewSensor = new Sensors();
+    NewSensor.Temperature = req.body;
+    NewSensor.Humidity = req.body;
+    NewSensor.P_IN = req.body;
+    NewSensor.P_OUT = req.body;
     NewSensor.save((err,sensor) => {
         if(err){
             throw err;
@@ -45,6 +51,7 @@ app.post('/HW_Send', (req, res) => {
             res.json(sensor);
         }
     });*/
+
 
 });
 
